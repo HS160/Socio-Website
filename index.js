@@ -161,7 +161,7 @@ colorPalette.forEach(color => {
     })
 })
 
-// theme BACKGROUND values
+// Theme BACKGROUND values
 let lightColorLightness;
 let whiteColorLightness;
 let darkColorLightness;
@@ -171,192 +171,48 @@ const changeBG = () => {
     root.style.setProperty('--light-color-lightness', lightColorLightness);
     root.style.setProperty('--white-color-lightness', whiteColorLightness);
     root.style.setProperty('--dark-color-lightness', darkColorLightness);
-    document.body.style.background = `hsl(252, 30%, ${lightColorLightness})`;
 }
 
 Bg1.addEventListener('click', () => {
+    // Light theme
     darkColorLightness = '17%';
     whiteColorLightness = '100%';
     lightColorLightness = '95%';
     
-    // add active class
     Bg1.classList.add('active');
-    // remove active class from the others
     Bg2.classList.remove('active');
     Bg3.classList.remove('active');
     changeBG();
-
-    // Reset panels and text to light mode
-    document.querySelectorAll('.messages, .feeds .feed, .customize-theme .card, .left .profile, .left .sidebar').forEach(panel => {
-        panel.style.background = `hsl(252, 30%, ${whiteColorLightness})`;
-        panel.style.color = 'var(--color-dark)';
-    });
-
-    // Reset stories to light mode
-    document.querySelectorAll('.story').forEach(story => {
-        story.style.backgroundColor = 'var(--color-white)';
-        story.style.opacity = '1';
-        const profilePhoto = story.querySelector('.profile-photo');
-        if (profilePhoto) {
-            profilePhoto.style.border = '3px solid var(--color-primary)';
-            const img = profilePhoto.querySelector('img');
-            if (img) {
-                img.style.opacity = '1';
-                img.style.visibility = 'visible';
-            }
-        }
-        const name = story.querySelector('.name');
-        if (name) {
-            name.style.color = 'var(--color-dark)';
-            name.style.opacity = '1';
-        }
-    });
-
-    // Reset text colors
-    document.querySelectorAll('h3, h4, h5, p, span, small').forEach(text => {
-        text.style.color = 'var(--color-dark)';
-    });
+    document.body.style.background = `hsl(252, 30%, ${lightColorLightness})`;
 });
 
 Bg2.addEventListener('click', () => {
-    darkColorLightness = '95%';
-    whiteColorLightness = '20%';
-    lightColorLightness = '15%';
-    
+    changeBG();
+    root.classList.add('bg-2');
     Bg2.classList.add('active');
     Bg1.classList.remove('active');
     Bg3.classList.remove('active');
-    changeBG();
-
-    // Apply dark mode to panels
-    document.querySelectorAll('.messages, .feeds .feed, .customize-theme .card, .left .profile, .left .sidebar').forEach(panel => {
-        panel.style.background = `hsl(252, 30%, ${whiteColorLightness})`;
-        panel.style.color = 'white';
-    });
-
-    // Fix story visibility in dark mode
-    document.querySelectorAll('.story').forEach(story => {
-        story.style.backgroundColor = 'var(--color-primary)';
-        story.style.opacity = '1';
-        const profilePhoto = story.querySelector('.profile-photo');
-        if (profilePhoto) {
-            profilePhoto.style.border = '3px solid var(--color-white)';
-            const img = profilePhoto.querySelector('img');
-            if (img) {
-                img.style.opacity = '1';
-                img.style.visibility = 'visible';
-            }
-        }
-        const name = story.querySelector('.name');
-        if (name) {
-            name.style.color = 'white';
-            name.style.opacity = '1';
-        }
-    });
-
-    // Ensure text is visible
-    document.querySelectorAll('h3, h4, h5, p, span, small').forEach(text => {
-        text.style.color = 'white';
-    });
+    document.body.style.background = 'hsl(252, 30%, 17%)';
 });
 
 Bg3.addEventListener('click', () => {
-    darkColorLightness = '95%';
-    whiteColorLightness = '10%';
-    lightColorLightness = '0%';
-
-    // add active class
+    changeBG();
+    root.classList.add('bg-3');
     Bg3.classList.add('active');
-    // remove active class from the others
     Bg1.classList.remove('active');
     Bg2.classList.remove('active');
-    changeBG();
-
-    // Apply dark mode to panels
-    document.querySelectorAll('.messages, .feeds .feed, .customize-theme .card, .left .profile, .left .sidebar').forEach(panel => {
-        panel.style.background = `hsl(252, 30%, ${whiteColorLightness})`;
-        panel.style.color = 'white';
-    });
-
-    // Fix story visibility in darkest mode
-    document.querySelectorAll('.story').forEach(story => {
-        story.style.backgroundColor = 'var(--color-primary)';
-        story.style.opacity = '1';
-        const profilePhoto = story.querySelector('.profile-photo');
-        if (profilePhoto) {
-            profilePhoto.style.border = '3px solid var(--color-white)';
-            const img = profilePhoto.querySelector('img');
-            if (img) {
-                img.style.opacity = '1';
-                img.style.visibility = 'visible';
-            }
-        }
-        const name = story.querySelector('.name');
-        if (name) {
-            name.style.color = 'white';
-            name.style.opacity = '1';
-        }
-    });
-
-    // Ensure text is visible
-    document.querySelectorAll('h3, h4, h5, p, span, small').forEach(text => {
-        text.style.color = 'white';
-    });
+    document.body.style.background = 'hsl(252, 30%, 10%)';
 });
 
-Bg1.addEventListener('click', () => {
-    darkColorLightness = '17%';
-    whiteColorLightness = '100%';
-    lightColorLightness = '95%';
-    
-    // add active class
-    Bg1.classList.add('active');
-    // remove active class from the others
-    Bg2.classList.remove('active');
-    Bg3.classList.remove('active');
-    changeBG();
-
-    // Reset panels and text to light mode
-    document.querySelectorAll('.messages, .feeds .feed, .customize-theme .card, .left .profile, .left .sidebar').forEach(panel => {
-        panel.style.background = `hsl(252, 30%, ${whiteColorLightness})`;
-        panel.style.color = 'var(--color-dark)';
-    });
-
-    // Reset stories to light mode
-    document.querySelectorAll('.story').forEach(story => {
-        story.style.backgroundColor = 'var(--color-white)';
-        story.style.opacity = '1';
-        const profilePhoto = story.querySelector('.profile-photo');
-        if (profilePhoto) {
-            profilePhoto.style.border = '3px solid var(--color-primary)';
-            const img = profilePhoto.querySelector('img');
-            if (img) {
-                img.style.opacity = '1';
-                img.style.visibility = 'visible';
-            }
-        }
-        const name = story.querySelector('.name');
-        if (name) {
-            name.style.color = 'var(--color-dark)';
-            name.style.opacity = '1';
-        }
-    });
-
-    // Reset text colors
-    document.querySelectorAll('h3, h4, h5, p, span, small').forEach(text => {
-        text.style.color = 'var(--color-dark)';
-    });
-});
-
+// Remove the duplicate theme customization section and duplicate event listeners
 
 // Set default font size when page loads
-window.addEventListener('load', () => {
-    // Remove active class from default size
-    document.querySelector('.font-size-2').classList.remove('active');
-    // Add active class to smallest size
-    document.querySelector('.font-size-1').classList.add('active');
-    // Set the smallest font size
+document.addEventListener('DOMContentLoaded', () => {
+    // Set font size to smallest (10px)
     document.querySelector('html').style.fontSize = '10px';
+    // Add active class to first font size option
+    document.querySelector('.font-size-1').classList.add('active');
+    // Set sticky positions
     root.style.setProperty('----sticky-top-left', '5.4rem');
     root.style.setProperty('----sticky-top-right', '5.4rem');
 });
