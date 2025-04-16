@@ -703,3 +703,38 @@ main .container .right{
         width: 92vw;
     }
 }
+
+/* Update friend requests section for dark modes */
+.bg-2 .friend-requests,
+.bg-3 .friend-requests {
+    background: var(--color-dark);
+}
+
+.bg-2 .request,
+.bg-3 .request {
+    background: var(--color-dark);
+}
+
+.bg-2 .request .action .btn:not(.btn-primary),
+.bg-3 .request .action .btn:not(.btn-primary) {
+    background: hsl(252, 30%, 30%);
+    color: var(--color-white);
+}
+
+.bg-2 .request h5,
+.bg-3 .request h5,
+.bg-2 .request .text-muted,
+.bg-3 .request .text-muted {
+    color: var(--color-white);
+}
+
+.bg-2 .friend-requests h4,
+.bg-3 .friend-requests h4 {
+    color: var(--color-white);
+}
+
+.bg-2 .request .action .btn-primary,
+.bg-3 .request .action .btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
